@@ -45,6 +45,10 @@ app.get('/a', dumbMW, (req,res,next) => {
   res.send('All AAAA');
 });
 
+app.get('/e', barf, (req,res) => {
+  res.status(200).send('Route D');
+});
+
 app.get('/b', smartMW('world'), (req,res,next) => {
   console.log('In the "/a" route');
   res.status(200);
